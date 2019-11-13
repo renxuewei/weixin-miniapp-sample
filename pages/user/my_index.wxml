@@ -1,0 +1,82 @@
+<!--my_index.wxml-->
+<import src="/_layout/_footer_tabs.wxml" />
+
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__section" style="background-color:white;border:0.5px solid #D9D9D9;margin-bottom:5px;padding:2px;">
+                <view class="weui-flex">
+                    <view style="width:100%;padding:10px;">
+                        <view class="userinfo-nickname" style="font-size:18px;margin-bottom:10px;">{{login.FullName}}</view>
+                        <view class="weui-cell_link" style="font-size:16px;" bindtap="legalentity_detail" wx:if="{{login.ActiveEntity}}">{{login.ActiveEntity.LegalEntityName}} > </view>
+                        <view style="color:#aaa;font-size:8pt;" wx:if="{{login.ActiveEntity}}">
+                        </view>
+                    </view>
+                    <view class="userinfo">
+                        <image class="userinfo-avatar" src="{{login.HeadImg || '/resources/icon-my-default.png'}}" background-size="cover" bindtap="redirect_myform"></image>
+                    </view>
+                </view>
+            </view>
+
+            <block wx:if="{{login.ActiveEntity}}">
+
+                <view class="weui-cells__title"></view>
+                <view class="weui-cells weui-cells_after-title">
+
+                    <navigator url="invite_user" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__hd">
+                            <image src="/resources/user/icon_invite.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                        </view>
+                        <view class="weui-cell__bd">邀请加入</view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </navigator>
+
+                </view>
+
+            </block>
+
+            <view class="weui-cells__title"></view>
+            <view class="weui-cells weui-cells_after-title">
+
+                <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="clear_storage_data">
+                    <view class="weui-cell__hd">
+                        <image src="/resources/user/icon_clear_cache.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                    </view>
+                    <view class="weui-cell__bd">清除缓存</view>
+                </view>
+
+                <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="scan_code">
+                    <view class="weui-cell__hd">
+                        <image src="/resources/icon-saomiao.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                    </view>
+                    <view class="weui-cell__bd">扫一扫</view>
+                    <view class="weui-cell__ft">
+                    </view>
+                </view>
+
+            </view>
+
+            <view class="weui-cells__title"></view>
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='check_upgrade'>
+                    <view class="weui-cell__hd">
+                    </view>
+                    <view class="weui-cell__bd" style='color:gray;font-size:9pt;'>当前版本：{{version}}</view>
+                    <view class="weui-cell__ft" style='color:red;font-size:9pt;' wx:if="{{hasUpdate}}">
+                        有新版本>立即更新
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__hd">
+                    </view>
+                    <view class="weui-cell__bd" style='color:gray;font-size:9pt;'>技术支持：18610292675</view>
+                </view>
+            </view>
+
+            <view class="weui-cells__tips">
+            </view>
+        </view>
+
+    </view>
+    <template is="footer-tabs" data="{{footer_tabs}}" />
+</view>

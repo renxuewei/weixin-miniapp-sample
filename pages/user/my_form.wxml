@@ -1,0 +1,57 @@
+<!--my_form.wxml-->
+
+<form bindsubmit="submit_request" report-submit='true'>
+    <view class="page" wx:if="{{userInfo}}">
+        <view class="page__bd">
+            <view class="weui-cells__title">个人资料</view>
+
+
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label {{fullname_invalid?'weui-cell_warn':''}}">姓名：</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入姓名" bindinput="type_fullname" value="{{login.FullName}}" />
+                    </view>
+                    <view class="weui-cell__ft">
+                        <icon type="warn" size="23" color="#E64340" wx:if="{{fullname_invalid}}"></icon>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-cell_vcode">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label {{mobile_invalid?'weui-cell_warn':''}}">手机号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入手机号" bindinput="type_mobile" value="{{login.Mobile}}" />
+                    </view>
+                    <view class="weui-cell__ft">
+                        <icon type="warn" size="23" color="#E64340" wx:if="{{mobile_invalid}}"></icon>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label {{email_invalid?'weui-cell_warn':''}}">邮箱：</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入邮件地址" bindinput="type_email" value="{{login.Email}}" />
+                    </view>
+                    <view class="weui-cell__ft">
+                        <icon type="warn" size="23" color="#E64340" wx:if="{{email_invalid}}"></icon>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-btn-area" wx:if="{{login.IsImpersonated!==true}}">
+                <button formType="submit" class='weui-btn page-btn-primary' hover-class="other-button-hover" disabled='{{disabled}}'>更新</button>
+            </view>
+
+            <confirmdialog id="confirm_dialog" bindsuccess="continue_submit" />
+
+            <view class="weui-cells__tips">
+                <!--你还可以邀请其他伙伴加入-->
+            </view>
+
+        </view>
+    </view>
+
+</form>

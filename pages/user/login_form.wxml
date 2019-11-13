@@ -1,0 +1,51 @@
+<!--user_modules/pages/login_form.wxml-->
+<form report-submit="true" bindsubmit="submit_request">
+    <view class="page" wx:if="{{userInfo && aid}}">
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="userinfo">
+                        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+                        <text class="userinfo-nickname">{{userInfo.nickName || '未授权'}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label {{username_invalid?'weui-cell_warn':''}}">账户</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" bindinput="type_username" value="{{_uid}}" />
+                </view>
+                <view class="weui-cell__ft">
+                    <icon type="warn" size="23" color="#E64340" wx:if="{{username_invalid}}"></icon>
+                </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label {{password_invalid?'weui-cell_warn':''}}">密码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="password" bindinput="type_password" />
+                </view>
+                <view class="weui-cell__ft">
+                    <icon type="warn" size="23" color="#E64340" wx:if="{{password_invalid}}"></icon>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__tips" style="color:#E64340">
+            {{error_message}}
+        </view>
+
+
+        <view class="weui-btn-area">
+            <button class="weui-btn page-btn-primary" bindtap='signin'>登录</button>
+        </view>
+    </view>
+    <view wx:else>登录中...</view>
+</form>

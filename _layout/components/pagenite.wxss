@@ -1,0 +1,59 @@
+/* _layout/components/pagenite.wxss */
+@import "/resources/weui/weui.wxss";
+
+.pagenite-head {
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    left: 0;
+    right: 0;
+    padding: 0px;
+    text-align: center;
+    color: #fff;
+    z-index: 5000;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.tab-head {
+    background-color: white;
+}
+
+.tab-head-item {
+    position: relative;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    text-align: center;
+    font-size: 0;
+}
+
+.tab-nomarl {
+    color: black;
+    border-bottom: 2px solid white;
+    padding: 20rpx 0;
+    min-width: 75%;
+    font-size: 28rpx;
+}
+
+.tab-active {
+    color: #0cf;
+    border-bottom: 2px solid #0cf;
+    padding: 20rpx 0;
+    min-width: 75%;
+    font-size: 28rpx;
+}
+
+.tab-badge {
+    position: absolute;
+    font-size: 9px;
+	line-height: 12px;
+    bottom: 25px;
+    right: 10px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+}

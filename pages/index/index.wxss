@@ -1,0 +1,131 @@
+.contact-btn {
+    border-radius: 30px;
+    height: 30px;
+    width: 30px;
+    color: gray;
+    border: 0px !important;
+    position: absolute;
+    right: 20px;
+    top: -60px;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 4px, 9px;
+}
+
+.tab {
+    width: 20%;
+    height: 75px;
+    background: #00c1de;
+    color: #fff;
+    text-align: center;
+    float: left;
+    font-size: 14px;
+    margin-left: 10%;
+    border-radius: 5px;
+    position: relative;
+}
+
+.total {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background: orangered;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    border-radius: 50%;
+}
+
+.set {
+    background: #ccc;
+}
+
+.btn-hidden {
+    display: none;
+}
+
+.btn-display {
+    display: block;
+}
+
+.head-image {
+    float: left;
+    position: relative;
+    height: 28px;
+    width: 28px;
+}
+
+.head-image image {
+    height: 28px;
+    width: 28px;
+}
+
+.head-title {
+    float: left;
+    position: relative;
+    height: 28px;
+    width: 40%;
+    padding-left: 10px;
+}
+
+.user-title {
+    float: left;
+    position: relative;
+    font-size: 10pt;
+    padding-right: 50%;
+}
+
+.store-title {
+    float: left;
+    position: relative;
+    font-size: 8pt;
+    color: cadetblue;
+}
+
+.notification-image {
+    float: right;
+    position: relative;
+    height: 28px;
+    width: 28px;
+    margin-right: 1%;
+    background-repeat: no-repeat;
+}
+
+.notification-image image {
+    height: 28px;
+    width: 28px;
+}
+
+.search-image {
+    float: right;
+    position: relative;
+    height: 28px;
+    width: 28px;
+    margin-right: 10%;
+    background-repeat: no-repeat;
+}
+
+.search-image image {
+    height: 28px;
+    width: 28px;
+}
+
+.entity-line {
+    height: 60rpx;
+    line-height: 60rpx;
+	margin-left: 20rpx;
+	margin-right: 10rpx;
+	padding: 10rpx;
+	border-top: 1px solid slategray;
+}
+
+.entity-default {
+    color: black;
+}
+
+.entity-active {
+    color: dodgerblue;
+}

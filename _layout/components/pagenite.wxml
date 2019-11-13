@@ -1,0 +1,43 @@
+<!--_layout/components/pagenite.wxml-->
+<view class='pagenite-head' style='top:{{headTop}}px;' hidden='{{hidden}}'>
+    <view class='weui-flex tab-head' wx:if="{{showtab}}">
+        <view wx:for="{{tabs}}" wx:key="index" class="tab-head-item" data-idx="{{index}}" bindtap="_onActiveTab">
+            <view class="weui-navbar__title {{activeTabIndex == index ? 'tab-active' : 'tab-nomarl'}}">{{item.title}}</view>
+            <view class='tab-badge' wx:if="{{item.recordsCount>0}}">{{item.recordsCount>99?' ':(item.recordsCount||0)}}</view>
+        </view>
+    </view>
+    <view class="weui-search-bar" wx:if="{{showfilter}}">
+        <view class="weui-search-bar__form" style="{{showadvance?'padding-right:50px;':''}}">
+            <view class="weui-search-bar__box">
+                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                <input type="text" class="weui-search-bar__input" style='color:black;' value="{{keyword}}" confirm-type="search" placeholder="搜索" focus="{{inputshown}}" bindinput="_onTypeing" bindconfirm="_onSearch" />
+                <view class="weui-icon-clear" wx:if="{{keyword.length > 0}}" bindtap="_onClearInput">
+                    <icon type="clear" size="14"></icon>
+                </view>
+            </view>
+            <label class="weui-search-bar__label" hidden="{{inputshown}}" bindtap="_onShowInput">
+                <icon class="weui-icon-search" type="search" size="14"></icon>
+                <view class="weui-search-bar__text">搜索</view>
+            </label>
+        </view>
+        <view class="weui-search-bar__cancel-btn" hidden="{{!inputshown}}" bindtap="_onHideInput">取消</view>
+        <view wx:if="{{showadvance}}" style="align-self: center;margin-left:10rpx;" bindtap="_onShowAdvance">
+            <image src="/resources/filter.png" style="width: 25px; height: 25px; display: block;border-radius:2px;" />
+        </view>
+    </view>
+</view>
+
+<view style='margin-top:{{bodyTop}}px;' hidden='{{hidden}}'>
+    <slot>
+        <!-- DATA LIST CONTAINER -->
+    </slot>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{norecord}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='background:transparent;'>没有数据</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:elif="{{reachtail}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='background:transparent;'>我是有底线的</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:elif="{{showmoretip && !reachtail}}" catchtouchend='_onNext'>
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='background:transparent;'>上滑或点击加载更多</view>
+    </view>
+</view>

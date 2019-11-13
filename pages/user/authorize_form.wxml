@@ -1,0 +1,27 @@
+<!--shared/pages/authorize_form.wxml-->
+
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-btn-area">
+            <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+            <view class="weui-article">
+                <view class="weui-article__section">
+                    <view class="weui-article__section">
+                        <view class="userinfo">
+                            <view class="userinfo-avatar">
+                                <open-data type="userAvatarUrl"></open-data>
+                            </view>
+                            <view class="userinfo-nickname">
+                                <open-data type="userNickName"></open-data>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <!-- 需要使用 button 来授权登录 -->
+            <button class='weui-btn page-btn-primary' wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="get_user_info">授权登录</button>
+            <view wx:else>当前微信版本过低，请升级微信版本</view>
+        </view>
+    </view>
+</view>

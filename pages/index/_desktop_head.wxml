@@ -1,0 +1,20 @@
+<template name="desktop_head">
+    <view style="position:fixed;top:0px;padding:10px;width:100%;border-bottom:1rpx solid #d9d9d9;background-color:white;z-index:999;">
+        <view class='weui-flex' catchtap="show_entities_panel">
+            <view bindtap="change_activelegalentity" wx:if="{{login.ActiveEntity}}">
+                <view class="weui-cell_link" style="vertical-align: middle;">{{login.ActiveEntity.LegalEntityName}}</view>
+            </view>
+            <view wx:if="{{login.Entities.length>1}}">
+                <image style="vertical-align: middle;width: 20px; height: 20px; border-radius:2px;" src="/resources/desktop_icons/icon_dropdown.png" />
+            </view>
+            <view style="position:absolute;right:30px;" bindtap="redirect_search" wx:if="{{login.ActiveEntity && login.Id != 5}}">
+                <image src="/resources/icon-search.png" style="width: 25px; height: 25px; display: block;" />
+            </view>
+        </view>
+        <view class='weui-cells' hidden='{{!entities_panel_display}}'>
+            <view class='weui-cell' wx:for="{{login.Entities}}" wx:key="Id">
+                <view class='weui-cell__bd entity-{{login.ActiveEntity.Id == item.Id?"active":"default"}}' catchtap='switch_entity' data-id='{{item.Id}}'>{{item.LegalEntityName}}</view>
+            </view>
+        </view>
+    </view>
+</template>

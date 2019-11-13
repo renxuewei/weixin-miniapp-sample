@@ -1,0 +1,27 @@
+<!--pc_signup_confirm.wxml-->
+<!--index.wxml-->
+
+<view class="container">
+    <view class="userinfo">
+        <icon class="userinfo-avatar" type="info" size="70" color="blue" />
+        <text class="userinfo-nickname">登录确认</text>
+    </view>
+</view>
+
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__p" style="text-align:center; padding-top:100px;">
+                    {{tips}}
+                </view>
+                <view class="weui-article__p" style="text-align:center;">
+                    <view class="weui-btn-area">
+                        <button class="weui-btn page-btn-primay" type="primary" bindtap="login_confirm" wx:if="{{is_valid_code}}">确认登录</button>
+                        <button class="weui-btn" type="default" bindtap="login_cancel">取消</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

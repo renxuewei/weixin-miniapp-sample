@@ -1,0 +1,22 @@
+<!--_layout/components/confirmdialog.wxml-->
+<view class='mask_layer' bindtap='onCancel' hidden='{{hidden}}' />
+<view class='modal_box' hidden='{{hidden}}'>
+    <view class="weui-cells__title">{{title}}</view>
+    <view class="weui-cells weui-cells_after-title content">
+
+        <view class="weui-cell weui-cell_input" wx:for="{{texts}}" wx:key="name">
+            <view class="weui-cell__bd">
+                {{item.name}}：
+            </view>
+            <view class="weui-cell__ft">
+                <label class="weui-input">{{item.text}}</label>
+            </view>
+        </view>
+
+    </view>
+    <view class="weui-footer">
+        <view class="weui-btn-area">
+            <button class="weui-btn page-btn-primary" formType="submit" bindtap='onConfirm'>确定</button>
+        </view>
+    </view>
+</view>

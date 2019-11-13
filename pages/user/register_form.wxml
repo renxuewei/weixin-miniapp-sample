@@ -1,0 +1,72 @@
+<!--register_form.wxml-->
+
+
+<form report-submit="true" bindsubmit="submit_request">
+
+    <view class="page" wx:if="{{!userInfo}}">
+        <image src="/resources/other/banner.jpg" style="width:100%;height:130px;" />
+        <view class="weui-cells__tips" style="color:#E64340">
+            如果您已经是MENZ的合作伙伴，请点击立即注册以便完成线上入驻。
+        </view>
+        <view class="weui-btn-area page-footer-fixed">
+            <button class="weui-btn page-btn-primary" bindtap="redirect_auth">立即注册</button>
+        </view>
+    </view>
+
+    <view class="page" wx:else>
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="userinfo">
+                        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+                        <text class="userinfo-nickname">{{userInfo.nickName || '未授权'}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label {{mobile_invalid?'weui-cell_warn':''}}">手机号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="number" maxlength="11" placeholder="请输入手机号，用于接收业务通知" bindinput="type_mobile" value="{{Mobile}}" />
+                </view>
+                <view class="weui-cell__ft">
+                    <icon type="warn" size="23" color="#E64340" wx:if="{{mobile_invalid}}"></icon>
+                </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label {{mobile_code_invalid?'weui-cell_warn':''}}">验证码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="number" placeholder="请输入验证码" bindinput="type_mobile_code" />
+                </view>
+                <view class="weui-cell__ft">
+                    <button class="weui-btn page-btn-default" size='mini' plain='true' bindtap="getmobilecode" loading="{{loading}}" disabled="{{loading}}">{{expr>0?expr+'s':'获取'}}</button>
+                    <icon type="warn" size="23" color="#E64340" wx:if="{{mobile_code_invalid}}"></icon>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__tips" style="color:#E64340">
+            {{error_message}}
+        </view>
+
+
+        <view class="weui-btn-area">
+            <button formType="submit" class="weui-btn page-btn-primary" disabled="{{sumbit_disabled}}">提交</button>
+        </view>
+
+        <confirmdialog id="confirm_dialog" bindsuccess="continue_submit" />
+
+        <view class="weui-footer page-footer-fixed" wx:if="{{error_message}}">
+            <view class="weui-btn-area">
+                <view bindtap="refresh_login">已有账户?</view>
+            </view>
+        </view>
+    </view>
+</form>

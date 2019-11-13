@@ -1,0 +1,5 @@
+{
+	"usingComponents": {
+		"confirmdialog": "/_layout/components/confirmdialog"
+	}
+}

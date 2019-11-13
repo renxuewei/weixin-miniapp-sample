@@ -1,0 +1,36 @@
+<!--_layout/components/remarkinput.wxml-->
+<!-- <view class="weui-cell">
+    <view class="weui-cell__hd">
+        <view class='weui-label'>{{title}}</view>
+    </view>
+    <view class="weui-cell__bd" bindtap="onInputTexts" wx:if="{{!readonly}}">
+        <view class='weui-input'>{{texts||('输入'+title)}}</view>
+    </view>
+    <view class="weui-cell__bd" wx:else>
+        <view class='weui-input'> {{texts||'--'}}</view>
+    </view>
+    <view class='weui-cell__ft {{!readonly?"weui-cell__ft_in-access":""}}'></view>
+</view> -->
+
+<view class='mask_layer' bindtap='onCancel' hidden='{{hidden}}' />
+<view class="page-box" hidden="{{hidden}}">
+    <view class="weui-cells__title">{{title}}：</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" fixed="true" cursor-spacing='50' placeholder="请输入{{title}}" style="height: 6em; font-size:12pt;" maxlength='200' value='{{texts}}' bindinput='onTextChange' readonly="{{readonly}}" />
+
+            </view>
+            <view class="weui-cell__ft">
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells__tips">
+        当前字符数{{textsCount}}/200，用空格代替回车可以输入更多文本。
+    </view>
+
+    <view class="weui-btn-area">
+        <button class="weui-btn page-btn-primary" bindtap='onConfirm'>确定</button>
+    </view>
+</view>

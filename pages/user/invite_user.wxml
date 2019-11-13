@@ -1,0 +1,36 @@
+<!--invite_user.wxml-->
+<view class="page" style="background-color:white;">
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="userinfo">
+                        <image class="userinfo-avatar" src="{{login.HeadImg}}" background-size="cover"></image>
+                        <text class="userinfo-nickname">{{login.FullName}}</text>
+                    </view>
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__p" style="text-align:center;">
+                    </view>
+                </view>
+                <view class="weui-btn-area">
+                    <button wx:if="{{canIUse}}" class="weui-btn page-btn-primary" type="primary" open-type="share">分享给好友</button>
+                    <view wx:else style="font-size:9pt;text-align:center;">点右上角进行分享，或升级微信版本直接用按钮分享</view>
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__p" style="text-align:center;height:30px;">
+                    </view>
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__p" style="text-align:center;">
+                        <view class="userinfo">
+                            <image class="qrcode-avatar" src="{{invite_wxacode_url}}" background-size="cover" bindlongtap="preview_qrcode"></image>
+                            <text class="userinfo-nickname">被邀请者也可以通过微信扫一扫</text>
+                        </view>
+                    </view>
+                </view>
+
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,28 @@
+{
+	"networkTimeout": {
+		"request": 30000,
+		"connectSocket": 10000
+	},
+	"pages": [
+		"pages/index/index",
+		"pages/user/register_form",
+		"pages/user/invite_user",
+		"pages/user/my_form",
+		"pages/user/my_index",
+		"pages/user/pc_signin_confirm",
+		"pages/user/authorize_form",
+		"pages/user/login_form"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#00C1DE",
+		"navigationBarTitleText": "Weixin-MiniApp",
+		"navigationBarTextStyle": "white"
+	},
+	"permission": {
+		"scope.userLocation": {
+			"desc": "你的位置信息将用于发货地址维护时调用接口"
+		}
+	},
+	"sitemapLocation": "sitemap.json"
+}

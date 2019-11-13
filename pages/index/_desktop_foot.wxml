@@ -1,0 +1,12 @@
+<template name="desktop_foot">
+  <view class="page__ft">
+    <view class="weui-footer page-footer-fixed">
+      <view class="weui-footer__links page-row-spacing">
+        <!--<button wx:if="{{canIUse}}" class="weui-footer__link contact-btn" data-style="background-image: url('/resources/desktop_icons/icon_contact.png');" open-type="contact" size="mini" type="default"><image src="/resources/desktop_icons/icon_contact.png"/></button>
+        <contact-button wx:else>想了解更多?</contact-button>-->
+        <!--<button type="default" size="mini" bindtap="refresh" style="color:gray">刷新桌面</button>-->
+      </view>
+      <view class="weui-footer__text" style="margin-top:3px; font-size:5pt;">2017(C)MENZ</view>
+    </view>
+  </view>
+</template>

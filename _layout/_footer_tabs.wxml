@@ -1,0 +1,11 @@
+<template name="footer-tabs">
+    <view class='weui-flex' style='position:fixed; bottom:0px;width:100%; height:60px;z-index:999;border-top:1px solid #efefef;'>
+        <block wx:for="{{footer_tabs.list}}" wx:key="*this">
+            <view style='flex:1; padding: 5px; text-align:center;background-color:{{footer_tabs.backgroundColor}}' bindtap='switch_footer_tab' data-idx="{{index}}" data-page="{{item.pagePath}}">
+                <image style='display: block;height:25px;width:25px;margin: 0 auto;' src='/{{item.selected ? item.selectedIconPath : item.iconPath}}'></image>
+                <view style='margin-top: 5px;display: block;text-align: center;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;color:{{item.selected ? footer_tabs.selectedColor : "#999"}}'>{{item.text}}</view>
+                <view wx:if="{{item.badge_totals>0}}" class="weui-badge weui-badge_dot" style="text-align:center;min-width:10px;min-height:5px;line-height:10px;top:0px;position: absolute; font-size:10px;">{{item.badge_totals}}</view>
+            </view>
+        </block>
+    </view>
+</template>
